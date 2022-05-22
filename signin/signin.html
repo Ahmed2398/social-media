@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Admin Panel | </title>
+    <link rel="icon" href="img/icon.png" type="image/png">
+
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="../../vendors/bundle.css" type="text/css">
+
+    <!-- Google font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+
+
+    <!-- Daterangepicker -->
+    <link rel="stylesheet" href=../../vendors/datepicker/daterangepicker.css" type="text/css">
+
+    <!-- DataTable -->
+    <link rel="stylesheet" href="../../vendors/dataTable/datatables.min.css" type="text/css">
+
+<!-- App css -->
+    <link rel="stylesheet" href="../../assets/css/app.css" type="text/css">
+    <!-- Main scripts -->
+<script src="../../vendors/bundle.js"></script>
+
+    <!-- Apex chart -->
+    <script src="../../vendors/charts/apex/apexcharts.min.js"></script>
+
+    <!-- Daterangepicker -->
+    <script src="../../vendors/datepicker/daterangepicker.js"></script>
+
+    <!-- DataTable -->
+    <script src="../../vendors/dataTable/datatables.min.js"></script>
+
+    <!-- Dashboard scripts -->
+    <script src="../../assets/js/examples/pages/dashboard.js"></script>
+    <script src="../../vendors/charts/chartjs/chart.min.js"></script>
+
+<!-- App scripts -->
+
+<link href="../../vendors/sweetalert/sweetalert.css" rel="stylesheet" />
+<script src="../../assets/js/admin.js"></script>
+<link rel="stylesheet" href="../../vendors/select2/css/select2.min.css'" type="text/css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+<script src="../../vendors/tinymce/js/tinymce/tinymce.min.js"></script>
+<script src="../../vendors/bootstrap-tagsinput/src/bootstrap-tagsinput.js"></script>
+<link href="../../vendors/bootstrap-tagsinput/src/bootstrap-tagsinput.css" rel="stylesheet" />
+<script src="../../vendors/codemirror-5.30.0/lib/codemirror.js"></script>
+<script src="../../vendors/codemirror-5.30.0/mode/css/css.js"></script>
+<script src="../../vendors/codemirror-5.30.0/mode/javascript/javascript.js"></script>
+<link rel="stylesheet" href="../../vendors/codemirror-5.30.0/lib/codemirror.css">
+
+
+    
+        <!-- Css -->
+        <link rel="stylesheet" href="../../vendors/lightbox/magnific-popup.css'" type="text/css">
+        <link rel="stylesheet" href="../../assets/css/app_costume.css" type="text/css">
+
+
+        <!-- Javascript -->
+        <script src="../../vendors/lightbox/jquery.magnific-popup.min.js"></script>
+        <script src="../../vendors/charts/justgage/raphael-2.1.4.min.js"></script>
+        <script src="../../vendors/charts/justgage/justgage.js"></script>
+    <script src="../../assets/js/jquery.form.min.js"></script>
+    
+    <style>
+        /* Start Login Style Page */
+.login{
+ background-color: #8A62CC !important;
+
+} 
+.form-signin {
+    width: 100%;
+    max-width: 500px;
+    padding: 2rem 1rem;
+    margin: 0 auto;
+  }
+  .form-signin .checkbox {
+    font-weight: 400;
+  }
+  .form-signin .form-control {
+    position: relative;
+    box-sizing: border-box;
+    height: auto;
+    padding: 10px;
+    font-size: 16px;
+  }
+  .form-signin .form-control:focus {
+    z-index: 2;
+  }
+  .form-signin input[type="email"] {
+    margin-bottom: 1rem;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  .form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+  input{
+    margin: 1rem 0 !important;
+  }
+    </style>
+</head>
+
+<body >
+    <div class="barloading"></div>
+    <a id="redirect_link" href="" data-ajax="" data-sent="0"></a>
+    <input type="hidden" class="main_session" value="<?php echo Wo_CreateMainSession();?>">
+    <div class="colors"> <!-- To use theme colors with Javascript -->
+        <div class="bg-primary"></div>
+        <div class="bg-primary-bright"></div>
+        <div class="bg-secondary"></div>
+        <div class="bg-secondary-bright"></div>
+        <div class="bg-info"></div>
+        <div class="bg-info-bright"></div>
+        <div class="bg-success"></div>
+        <div class="bg-success-bright"></div>
+        <div class="bg-danger"></div>
+        <div class="bg-danger-bright"></div>
+        <div class="bg-warning"></div>
+        <div class="bg-warning-bright"></div>
+    </div>
+<!-- Preloader -->
+<div class="preloader">
+    <div class="preloader-icon"></div>
+    <span>Loading...</span>
+</div>
+<!-- ./ Preloader -->
+<div class="container-fluid">
+    <div class="row align-items-center justify-content-center" style="background-color: #fff;
+    height: 100vh;">
+        <div class="col-lg-5 col-md-8 col-12">
+            <a href="index.html" class="mb-4 d-block text-center"><img src="/assets/media/images/Group 1392.svg" alt="logo" class="img-fluid"></a>
+            <div class="register-wrap p-5 shadow rounded-custom" style="background-color: #8A62CC;">
+                <h1 class="text-white text-center">Nice to Seeing You Again</h1>
+                <p class="text-muted text-center">Please log in to access your account web-enabled methods of innovative
+                    niches.</p>
+
+                
+                <form action="#" class="mt-4 register-form">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <label for="email" class="mb-1 text-white">Email <span class="text-danger">*</span></label>
+                            <div class="input-group mb-3">
+                                <input type="email" class="form-control" placeholder="Email" id="email"  aria-label="email">
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <label for="password" class="mb-1 text-white">Password <span class="text-danger">*</span></label>
+                            <div class="input-group mb-3">
+                                <input type="password" class="form-control" placeholder="Password" id="password"  aria-label="Password">
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-1 btn-primary mt-3 d-block ">Signin</button>
+                        </div>
+                    </div>
+                    <p class="font-monospace fw-medium text-center text-muted mt-3 pt-4 mb-0">Don’t have an
+                        account? <a href="#" class="text-decoration-none">Sign up Today</a>
+                        <br>
+                        <a href="#" class="text-decoration-none">Forgot password</a>
+                    </p>    
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+  
+
+<script src="../../vendors/sweetalert/sweetalert.min.js"></script>
+<script src="../../vendors/select2/js/select2.min.js"></script>
+    <script src="../../assets/js/examples/select2.js"></script>
+    <script src="../../assets/js/app.min.js"></script>
+    <script type="text/javascript">
+        function ChangeMode(mode) {
+            if (mode == 'day') {
+                $('body').removeClass('dark');
+                $('.admin_mode').html('<span id="night-mode-text">Night mode</span><svg class="feather feather-moon float-right" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>');
+                $('.admin_mode').attr('onclick', "ChangeMode('night')");
+            }
+            else{
+                $('body').addClass('dark');
+                $('.admin_mode').html('<span id="night-mode-text">Day mode</span><svg class="feather feather-moon float-right" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>');
+                $('.admin_mode').attr('onclick', "ChangeMode('day')");
+            }
+            hash_id = $('#hash_id').val();
+            $.get(Wo_Ajax_Requests_File(),{f:'admin_setting', s:'change_mode', hash_id: hash_id}, function(data) {});
+        }
+        $(document).ready(function(){
+            $('[data-toggle="popover"]').popover();
+            var hash = $('.main_session').val();
+              $.ajaxSetup({
+                data: {
+                    hash: hash
+                },
+                cache: false
+              });
+        });
+        $('body').on('click', function (e) {
+            $('.dropdown-animating').removeClass('show');
+            $('.dropdown-menu').removeClass('show');
+        });
+        function searchInFiles(keyword) {
+            if (keyword.length > 2) {
+                $.post(Wo_Ajax_Requests_File() + '?f=admin_setting&s=search_in_pages', {keyword: keyword}, function(data, textStatus, xhr) {
+                    if (data.html != '') {
+                        $('#search_for_bar').html(data.html)
+                    }
+                    else{
+                        $('#search_for_bar').html('')
+                    }
+                });
+            }
+            else{
+                $('#search_for_bar').html('')
+            }
+        }
+        jQuery(document).ready(function($) {
+            jQuery.fn.highlight = function (str, className) {
+                if (str != '') {
+                    var aTags = document.getElementsByTagName("h2");
+                    var bTags = document.getElementsByTagName("label");
+                    var cTags = document.getElementsByTagName("h3");
+                    var dTags = document.getElementsByTagName("h6");
+                    var searchText = str.toLowerCase();
+
+                    if (aTags.length > 0) {
+                        for (var i = 0; i < aTags.length; i++) {
+                            var tag_text = aTags[i].textContent.toLowerCase();
+                            if (tag_text.indexOf(searchText) != -1) {
+                                $(aTags[i]).addClass(className)
+                            }
+                        }
+                    }
+
+                    if (bTags.length > 0) {
+                        for (var i = 0; i < bTags.length; i++) {
+                            var tag_text = bTags[i].textContent.toLowerCase();
+                            if (tag_text.indexOf(searchText) != -1) {
+                                $(bTags[i]).addClass(className)
+                            }
+                        }
+                    }
+
+                    if (cTags.length > 0) {
+                        for (var i = 0; i < cTags.length; i++) {
+                            var tag_text = cTags[i].textContent.toLowerCase();
+                            if (tag_text.indexOf(searchText) != -1) {
+                                $(cTags[i]).addClass(className)
+                            }
+                        }
+                    }
+
+                    if (dTags.length > 0) {
+                        for (var i = 0; i < dTags.length; i++) {
+                            var tag_text = dTags[i].textContent.toLowerCase();
+                            if (tag_text.indexOf(searchText) != -1) {
+                                $(dTags[i]).addClass(className)
+                            }
+                        }
+                    }
+                }
+            };
+            jQuery.fn.highlight("<?php echo (!empty($_GET['highlight']) ? $_GET['highlight'] : '') ?>",'highlight_text');
+            $.get(Wo_Ajax_Requests_File(),{f:'admin_setting', s:'exchange'});
+        });
+        $(document).on('click', '#search_for_bar a', function(event) {
+            event.preventDefault();
+            location.href = $(this).attr('href');
+        });
+        function ReadNotify() {
+            hash_id = $('#hash_id').val();
+            $.get(Wo_Ajax_Requests_File(),{f:'admin_setting', s:'ReadNotify', hash_id: hash_id});
+            location.reload();
+        }
+        function delay(callback, ms) {
+          var timer = 0;
+          return function() {
+            var context = this, args = arguments;
+            clearTimeout(timer);
+            timer = setTimeout(function () {
+              callback.apply(context, args);
+            }, ms || 0);
+          };
+        }
+    </script>
+
+</body>
+</html>

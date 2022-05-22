@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Admin Panel | </title>
+    <link rel="icon" href="img/icon.png" type="image/png">
+
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="../../vendors/bundle.css" type="text/css">
+
+    <!-- Google font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+
+    <!-- Daterangepicker -->
+    <link rel="stylesheet" href=../../vendors/datepicker/daterangepicker.css" type="text/css">
+
+    <!-- DataTable -->
+    <link rel="stylesheet" href="../../vendors/dataTable/datatables.min.css" type="text/css">
+
+    <!-- App css -->
+    <link rel="stylesheet" href="../../assets/css/app.css" type="text/css">
+    <!-- Main scripts -->
+    <script src="../../vendors/bundle.js"></script>
+
+    <!-- Apex chart -->
+    <script src="../../vendors/charts/apex/apexcharts.min.js"></script>
+
+    <!-- Daterangepicker -->
+    <script src="../../vendors/datepicker/daterangepicker.js"></script>
+
+    <!-- DataTable -->
+    <script src="../../vendors/dataTable/datatables.min.js"></script>
+
+    <!-- Dashboard scripts -->
+    <script src="../../assets/js/examples/pages/dashboard.js"></script>
+    <script src="../../vendors/charts/chartjs/chart.min.js"></script>
+
+    <!-- App scripts -->
+
+    <link href="../../vendors/sweetalert/sweetalert.css" rel="stylesheet" />
+    <script src="../../assets/js/admin.js"></script>
+    <link rel="stylesheet" href="../../vendors/select2/css/select2.min.css'" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+    <script src="../../vendors/tinymce/js/tinymce/tinymce.min.js"></script>
+    <script src="../../vendors/bootstrap-tagsinput/src/bootstrap-tagsinput.js"></script>
+    <link href="../../vendors/bootstrap-tagsinput/src/bootstrap-tagsinput.css" rel="stylesheet" />
+    <script src="../../vendors/codemirror-5.30.0/lib/codemirror.js"></script>
+    <script src="../../vendors/codemirror-5.30.0/mode/css/css.js"></script>
+    <script src="../../vendors/codemirror-5.30.0/mode/javascript/javascript.js"></script>
+    <link rel="stylesheet" href="../../vendors/codemirror-5.30.0/lib/codemirror.css">
+
+
+
+    <!-- Css -->
+    <link rel="stylesheet" href="../../vendors/lightbox/magnific-popup.css'" type="text/css">
+    <link rel="stylesheet" href="../../assets/css/app_costume.css" type="text/css">
+
+
+    <!-- Javascript -->
+    <script src="../../vendors/lightbox/jquery.magnific-popup.min.js"></script>
+    <script src="../../vendors/charts/justgage/raphael-2.1.4.min.js"></script>
+    <script src="../../vendors/charts/justgage/justgage.js"></script>
+    <script src="../../assets/js/jquery.form.min.js"></script>
+
+    <style>
+        body {
+            background-color: #222;
+        }
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="barloading"></div>
+    <a id="redirect_link" href="" data-ajax="" data-sent="0"></a>
+    <input type="hidden" class="main_session" value="<?php echo Wo_CreateMainSession();?>">
+    <div class="colors">
+        <!-- To use theme colors with Javascript -->
+        <div class="bg-primary"></div>
+        <div class="bg-primary-bright"></div>
+        <div class="bg-secondary"></div>
+        <div class="bg-secondary-bright"></div>
+        <div class="bg-info"></div>
+        <div class="bg-info-bright"></div>
+        <div class="bg-success"></div>
+        <div class="bg-success-bright"></div>
+        <div class="bg-danger"></div>
+        <div class="bg-danger-bright"></div>
+        <div class="bg-warning"></div>
+        <div class="bg-warning-bright"></div>
+    </div>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-icon"></div>
+        <span>Loading...</span>
+    </div>
+    <!-- ./ Preloader -->
+
+    <!-- Sidebar group -->
+    <div class="sidebar-group">
+
+    </div>
+    <!-- ./ Sidebar group -->
+
+    <!-- Layout wrapper -->
+    <div class="layout-wrapper">
+
+        <!-- Header -->
+        <div class="header d-print-none">
+            <div class="header-container">
+                <div class="header-left">
+                    <div class="navigation-toggler">
+                        <a href="#" data-action="navigation-toggler">
+                            <i data-feather="menu"></i>
+                        </a>
+                    </div>
+
+                    <div class="header-logo w-100">
+                        <a href="../../index.html">
+                            <img class="logo" src="../../assets/media/images/logo.svg" alt="logo">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="header-body">
+                    <div class="header-body-left">
+                        <ul class="navbar-nav">
+
+                        </ul>
+                    </div>
+
+                    <div class="header-body-right">
+                        <ul class="navbar-nav">
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link" title="Notifications" data-toggle="dropdown">
+                                    <i data-feather="bell"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-big">
+                                    <div
+                                        class="border-bottom px-4 py-3 text-center d-flex justify-content-between align-items-center">
+                                        <h5 class="mb-0">Notifications</h5>
+                                        <small class="opacity-7"> unread notifications</small>
+                                    </div>
+                                    <div class="dropdown-scroll">
+                                        <ul class="list-group list-group-flush">
+                                            <li class="px-4 py-2 text-center small text-muted bg-light">Unread
+                                                Notifications</li <li class="px-4 py-3 list-group-item">
+                                            <a href="" class="d-flex align-items-center hide-show-toggler">
+                                                <div class="flex-shrink-0">
+                                                    <figure class="avatar mr-3">
+                                                        <span
+                                                            class="avatar-title bg-info-bright text-info rounded-circle">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                                                height="24" viewBox="0 0 24 24" fill="none"
+                                                                stroke="currentColor" stroke-width="1"
+                                                                stroke-linecap="round" stroke-linejoin="round"
+                                                                class="feather feather-credit-card">
+                                                                <rect x="1" y="4" width="22" height="16" rx="2" ry="2">
+                                                                </rect>
+                                                                <line x1="1" y1="10" x2="23" y2="10"></line>
+                                                            </svg>
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                                                height="24" viewBox="0 0 24 24">
+                                                                <path fill="#2196f3"
+                                                                    d="M12 2C6.5 2 2 6.5 2 12S6.5 22 12 22 22 17.5 22 12 17.5 2 12 2M10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z">
+                                                                </path>
+                                                            </svg>
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                                                height="24" viewBox="0 0 24 24" fill="none"
+                                                                stroke="currentColor" stroke-width="2"
+                                                                stroke-linecap="round" stroke-linejoin="round"
+                                                                class="feather feather-refresh-cw">
+                                                                <polyline points="23 4 23 10 17 10"></polyline>
+                                                                <polyline points="1 20 1 14 7 14"></polyline>
+                                                                <path
+                                                                    d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15">
+                                                                </path>
+                                                            </svg>
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                                                height="24" viewBox="0 0 24 24" fill="none"
+                                                                stroke="currentColor" stroke-width="2"
+                                                                stroke-linecap="round" stroke-linejoin="round"
+                                                                class="feather feather-dollar-sign">
+                                                                <line x1="12" y1="1" x2="12" y2="23"></line>
+                                                                <path
+                                                                    d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6">
+                                                                </path>
+                                                            </svg>
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                                                height="24" viewBox="0 0 24 24" fill="none"
+                                                                stroke="currentColor" stroke-width="2"
+                                                                stroke-linecap="round" stroke-linejoin="round"
+                                                                class="feather feather-flag">
+                                                                <path
+                                                                    d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z">
+                                                                </path>
+                                                                <line x1="4" y1="22" x2="4" y2="15"></line>
+                                                            </svg>
+
+                                                        </span>
+                                                    </figure>
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    <p class="mb-0 line-height-20 d-flex justify-content-between">
+                                                    </p>
+                                                    <span class="text-muted small"></span>
+                                                </div>
+                                            </a>
+                            </li>
+                            <li class="px-4 py-2 text-center small text-muted bg-light">Old Notifications</li>
+
+                            <li class="px-4 py-3 list-group-item">
+                                <a href="" class="d-flex align-items-center hide-show-toggler">
+                                    <div class="flex-shrink-0">
+                                        <figure class="avatar mr-3">
+                                            <span
+                                                class="avatar-title bg-secondary-bright text-secondary rounded-circle">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+                                                    class="feather feather-credit-card">
+                                                    <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+                                                    <line x1="1" y1="10" x2="23" y2="10"></line>
+                                                </svg>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                    viewBox="0 0 24 24">
+                                                    <path fill="#2196f3"
+                                                        d="M12 2C6.5 2 2 6.5 2 12S6.5 22 12 22 22 17.5 22 12 17.5 2 12 2M10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z">
+                                                    </path>
+                                                </svg>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                    class="feather feather-refresh-cw">
+                                                    <polyline points="23 4 23 10 17 10"></polyline>
+                                                    <polyline points="1 20 1 14 7 14"></polyline>
+                                                    <path
+                                                        d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15">
+                                                    </path>
+                                                </svg>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                    class="feather feather-dollar-sign">
+                                                    <line x1="12" y1="1" x2="12" y2="23"></line>
+                                                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                                                </svg>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                    class="feather feather-flag">
+                                                    <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z">
+                                                    </path>
+                                                    <line x1="4" y1="22" x2="4" y2="15"></line>
+                                                </svg>
+                                            </span>
+                                        </figure>
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <p class="mb-0 line-height-20 d-flex justify-content-between">
+                                        </p>
+                                        <span class="text-muted small"></span>
+                                    </div>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="px-4 py-3 text-right border-top">
+                        <ul class="list-inline small">
+                            <li class="list-inline-item mb-0">
+                                <a href="javascript:void(0)" onclick="ReadNotify()">Mark All Read</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" title="User menu" data-toggle="dropdown">
+                        <figure class="avatar avatar-sm">
+
+                            <img src="../../assets/media/images/Ellipse 121.png" class="rounded-circle"
+                                alt="avatar">
+                        </figure>
+                        <span class="ml-2 d-sm-inline d-none"></span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-big">
+                        <div class="text-center py-4">
+                            <figure class="avatar avatar-lg mb-0 border-0">
+                                <img src="assets/media/image//user/man_avatar1.jpg" class="rounded-circle" alt="image">
+                            </figure>
+                            <h5 class="text-center"></h5>
+                            <div class="mb-0 small text-center text-muted"></div>
+                            <a href="" class="btn btn-outline-light btn-rounded">View Profile</a>
+                        </div>
+                        <div class="list-group">
+                            <a href="" class="list-group-item text-danger">Sign Out!</a>
+                            <a href="javascript:void(0)" class="list-group-item admin_mode" onclick="ChangeMode('day')">
+                                <span id="night-mode-text">Day mode</span>
+                                <svg class="feather feather-moon float-right" xmlns="http://www.w3.org/2000/svg"
+                                    width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                                </svg>
+                            </a>
+                            <a href="javascript:void(0)" class="list-group-item admin_mode"
+                                onclick="ChangeMode('night')">
+                                <span id="night-mode-text">Night mode</span>
+                                <svg class="feather feather-moon float-right" xmlns="http://www.w3.org/2000/svg"
+                                    width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                                </svg>
+                            </a>
+
+                        </div>
+                    </div>
+                </li>
+                </ul>
+            </div>
+        </div>
+
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item header-toggler">
+                <a href="#" class="nav-link">
+                    <i data-feather="arrow-down"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+    </div>
+    <!-- ./ Header -->
+
+    <!-- Content wrapper -->
+    <div class="content-wrapper">
+        <!-- begin::navigation -->
+        <div class="navigation">
+            <div class="navigation-header">
+                <span>Navigation</span>
+                <a href="#">
+                    <i class="ti-close"></i>
+                </a>
+            </div>
+            <div class="navigation-menu-body">
+                <ul>
+
+                    <li class="showes">
+                        <a href="../showes/home.html">
+                            <span class="nav-link-icon">
+                                <i class="material-icons">widgets</i>
+                            </span>
+                            <span>Shows</span>
+                        </a>
+                    </li>
+
+
+                    <li class="events">
+                        <a href="../event-dashboard/event-dashboard.html">
+                            <span class="nav-link-icon">
+                                <i class="material-icons">event</i>
+                            </span>
+                            <span>Event Dashboard</span>
+                        </a>
+                    </li>
+
+
+                    <li class="manage_accounts">
+                        <a href="../admin/admin_users.html">
+                            <span class="nav-link-icon">
+                                <i class="material-icons">manage_accounts</i>
+                            </span>
+                            <span>Admin / Users </span>
+                        </a>
+                    </li>
+
+
+
+                    <li class="community">
+                        <a href="../community/community.html">
+                            <span class="nav-link-icon">
+                                <i class="material-icons">diversity_3</i>
+                            </span>
+                            <span>Community</span>
+                        </a>
+                    </li>
+
+
+            </div>
+        </div>
+        <!-- end::navigation -->
+
+        <!-- Content body -->
+
+        <div class="content-body">
+            <!-- Content -->
+            <div class="content ">
+                <div class="container-fluid">
+                    <div>
+                        <h3>Welcome back, Ahmed Ashraf</h3>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a href="../../index.html">Home</a>
+                                </li>
+                                <li class="breadcrumb-item">
+                                    <a href="../../index.html">Event Dashboard</a>
+                                </li>
+                                <li class="breadcrumb-item">
+                                    <a href="../../index.html">Infosalons</a>
+                                </li>
+                                <li class="breadcrumb-item">
+                                    <a href="../../index.html">ISME TEST EVENT</a>
+                                </li>
+                                <li class="breadcrumb-item">
+                                    <a href="wedget.html">Widget</a>
+                                </li>
+                                <li class="breadcrumb-item active" aria-current="page">Login</li>
+                            </ol>
+                        </nav>
+                    </div>
+
+
+                    <!-- Start table users -->
+                    <div class="">
+                        <div class="table-users">
+
+                            <div class="row mb-5">
+                                <div class="col-md-3"></div>
+                                <div class="col-md-6">
+                                    <h5> Wedget Version</h5>
+                                    <div class="btn-group btn-wedget">
+
+                                        <br>
+                                        <button class="btn btn-link btn-lg text-muted" type="button">
+                                            Wedget Version
+                                        </button>
+                                        <button type="button"
+                                            class="btn btn-lg btn-link dropdown-toggle dropdown-toggles dropdown-toggless dropdown-toggle-split"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <span class="sr-only">Toggle Dropdown</span>
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            ...
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-3"></div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-lg-2"></div>
+                                <div class="col-lg-8 tabs-style">
+                                    <ul class="nav nav-pills nav-pills-login  justify-content-center" id="pills-tab"
+                                        role="tablist">
+                                        <li class="nav-item">
+                                            <a class="nav-link active" id="pills-home-tab" data-toggle="pill"
+                                                href="#pills-home" role="tab" aria-controls="pills-home"
+                                                aria-selected="true">Genral</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="pills-profile-tab" data-toggle="pill"
+                                                href="#pills-profile" role="tab" aria-controls="pills-profile"
+                                                aria-selected="false">Networks</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="pills-contact-tab" data-toggle="pill"
+                                                href="#pills-contact" role="tab" aria-controls="pills-contact"
+                                                aria-selected="false">Display</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="pills-texts-tab" data-toggle="pill"
+                                                href="#pills-texts" role="tab" aria-controls="pills-texts"
+                                                aria-selected="false">Texts</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="pills-invite-tab" data-toggle="pill"
+                                                href="#pills-invite" role="tab" aria-controls="pills-invite"
+                                                aria-selected="false">Invite Message
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="pills-invite-tab" data-toggle="pill"
+                                                href="#pills-invite" role="tab" aria-controls="pills-invite"
+                                                aria-selected="false">Post Message
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="pills-social-tab" data-toggle="pill"
+                                                href="#pills-social" role="tab" aria-controls="pills-social"
+                                                aria-selected="false">Social Buttons
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                </div>
+                                <div class="col-lg-2"></div>
+                            </div>
+
+
+                            <div class="tab-content" id="pills-tabContent">
+                                <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
+                                    aria-labelledby="pills-home-tab">
+                                    <div class="d-flex justify-content-start">
+                                        <div class="">
+                                            <h5>Mark all attendees that<br> login through this widget as</h5>
+                                        </div>
+                                        <div class="">
+                                            <div class="custom-control custom-checkbox">
+                                                <label class="containers">
+                                                    <input type="checkbox" checked="checked">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                                <span class="ml-5">script attribute data-ingo-modal="True"
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class=" d-flex justify-content-center m-5 ">
+                                        <a class="btn btn-1  btn-primary " href="#" role="button">Save </a>
+
+                                    </div>
+
+                                </div>
+                                <div class="tab-pane fade" id="pills-profile" role="tabpanel"
+                                    aria-labelledby="pills-profile-tab">
+                                    <div class="row">
+                                        <div class="col-lg-2">
+                                            <h5>Social Network</h5>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <div class="my-3">
+                                                <div class="btn-group btn-wedget">
+                                                    <button class="btn btn-link btn-lg text-muted" type="button">
+                                                        Facebook
+                                                    </button>
+                                                    <button type="button"
+                                                        class="btn btn-lg btn-link dropdown-toggle dropdown-toggles dropdown-toggles-login dropdown-toggle-split"
+                                                        data-toggle="dropdown" aria-haspopup="true"
+                                                        aria-expanded="false">
+                                                        <span class="sr-only">Toggle Dropdown</span>
+                                                    </button>
+                                                    <div class="dropdown-menu">
+                                                        ...
+                                                    </div>
+                                                </div>
+                                                <span class="my-4">script attribute
+                                                    data-ingo-social-services[0]="facebook"
+                                                </span>
+                                            </div>
+                                            <div class="my-3">
+                                                <div class="btn-group btn-wedget">
+                                                    <button class="btn btn-link btn-lg text-muted" type="button">
+                                                        Linkedin
+                                                    </button>
+                                                    <button type="button"
+                                                        class="btn btn-lg btn-link dropdown-toggle dropdown-toggles dropdown-toggles-login dropdown-toggle-split"
+                                                        data-toggle="dropdown" aria-haspopup="true"
+                                                        aria-expanded="false">
+                                                        <span class="sr-only">Toggle Dropdown</span>
+                                                    </button>
+                                                    <div class="dropdown-menu">
+                                                        ...
+                                                    </div>
+                                                </div>
+                                                <span class="my-4">script attribute
+                                                    data-ingo-social-services[0]="facebook"
+                                                </span>
+                                            </div>
+                                            <div class="my-3">
+                                                <div class="btn-group btn-wedget">
+                                                    <button class="btn btn-link btn-lg text-muted" type="button">
+                                                        Twitter
+                                                    </button>
+                                                    <button type="button"
+                                                        class="btn btn-lg btn-link dropdown-toggle dropdown-toggles dropdown-toggles-login dropdown-toggle-split"
+                                                        data-toggle="dropdown" aria-haspopup="true"
+                                                        aria-expanded="false">
+                                                        <span class="sr-only">Toggle Dropdown</span>
+                                                    </button>
+                                                    <div class="dropdown-menu">
+                                                        ...
+                                                    </div>
+                                                </div>
+                                                <span class="my-4">script attribute
+                                                    data-ingo-social-services[0]="facebook"
+                                                </span>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-lg-2">
+                                            <ul class="d-flex justify-content-between my-4">
+                                                <li>
+                                                    <img src="/assets/media/images/Groupups.svg">
+                                                </li>
+                                                <li>
+                                                    <img src="/assets/media/images/Groupdown.svg">
+                                                </li>
+                                                <li>
+                                                    <img src="/assets/media/images/Groupdelete.svg">
+                                                </li>
+                                            </ul>
+                                            <ul class="d-flex justify-content-between my-4">
+                                                <li>
+                                                    <img src="/assets/media/images/Groupups.svg">
+                                                </li>
+                                                <li>
+                                                    <img src="/assets/media/images/Groupdown.svg">
+                                                </li>
+                                                <li>
+                                                    <img src="/assets/media/images/Groupdelete.svg">
+                                                </li>
+                                            </ul>
+                                            <ul class="d-flex justify-content-between my-5">
+                                                <li>
+                                                    <img src="/assets/media/images/Groupups.svg">
+                                                </li>
+                                                <li>
+                                                    <img src="/assets/media/images/Groupdown.svg">
+                                                </li>
+                                                <li>
+                                                    <img src="/assets/media/images/Groupdelete.svg">
+                                                </li>
+                                            </ul>
+                                            <span>
+                                                <a class="btn btn-6-outline  btn-primary " href="#"
+                                                    role="button"><span><img
+                                                            src="/assets/media/images/ant-design_plus-outlined.svg"
+                                                            alt=""></span>Add </a>
+
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class=" d-flex justify-content-center m-1 ">
+                                        <a class="btn btn-1  btn-primary " href="#" role="button">Save </a>
+
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="pills-contact" role="tabpanel"
+                                    aria-labelledby="pills-contact-tab">
+                                    <div class="row py-2 my-2">
+                                        <div class="col-lg-6 col-sm-12">
+                                            <div class="form-group">
+                                                <label for="inputFname">Hight</label>
+                                                <input type="text" class="form-control" id="inputFname" placeholder="">
+                                            </div>
+
+                                        </div>
+                                        <div class="col-lg-6 col-sm-12">
+                                            <div class="form-group">
+                                                <label for="inputLname"> Border color</label>
+                                                <input type="text" class="form-control" id="inputLname" placeholder="">
+                                            </div>
+
+                                        </div>
+                                        <div class="col-lg-6 col-sm-12">
+                                            <div class="form-group">
+                                                <label for="inputLname">Width</label>
+                                                <input type="text" class="form-control" id="inputLname" placeholder="">
+                                            </div>
+
+                                        </div>
+                                        <div class="col-lg-6 col-sm-12">
+                                            <label for="inputLname">Base text color</label>
+                                            <div class="form-group input-group">
+
+                                                <input type="text" class="form-control" placeholder="" aria-label=""
+                                                    aria-describedby="basic-addon1" style="border-top-right-radius: 0 !important;
+                                                border-bottom-right-radius: 0 !important;">
+                                                <div class="input-group-append">
+                                                    <button class="btn btn-6-outline" type="button">
+                                                        <img src="/assets/media/images/Groupcolor.svg">
+                                                    </button>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                    <div class=" d-flex justify-content-center m-1 ">
+                                        <a class="btn btn-1  btn-primary " href="#" role="button">Save </a>
+
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="pills-texts" role="tabpanel"
+                                    aria-labelledby="pills-texts-tab">
+                                    <div class="row py-2 my-2">
+                                        <div class="col-lg-6 col-sm-12">
+                                            <h3>(Social Widget Layout 1)</h3>
+                                            <div class="form-group">
+                                                <label for="inputHeader">Header</label>
+                                                <input type="text" class="form-control" id="inputHeader" placeholder="">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="inputFname">People Going text</label>
+                                                <input type="text" class="form-control" id="inputPeopleGoingtext"
+                                                    placeholder="">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="inputFname">Sub Header</label>
+                                                <input type="text" class="form-control" id="inputSubHeader"
+                                                    placeholder="">
+                                            </div>
+
+                                        </div>
+                                        <div class="col-lg-6 col-sm-12">
+                                            <h3>(Social Widget Layout 2)</h3>
+                                            <div class="form-group">
+                                                <label for="inputLname"> Your connections attending text</label>
+                                                <input type="text" class="form-control" id="inputLname" placeholder="">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="inputLname"> Other people going text</label>
+                                                <input type="text" class="form-control" id="inputLname" placeholder="">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="inputLname"> Invite a guest Text </label>
+                                                <input type="text" class="form-control" id="inputLname" placeholder="">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="inputLname">Invite Visa text </label>
+                                                <input type="text" class="form-control" id="inputLname" placeholder="">
+                                            </div>
+
+                                        </div>
+
+
+                                    </div>
+                                    <div class=" d-flex justify-content-center m-1 ">
+                                        <a class="btn btn-1  btn-primary " href="#" role="button">Save </a>
+
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="pills-invite" role="tabpanel"
+                                    aria-labelledby="pills-invite-tab">
+                                    <div class="row">
+                                        <div class="col-lg-12 ">
+
+                                            <form>
+                                                <div class="head py-3 mb-1 text-center">
+
+                                                </div>
+                                                <div class="row ">
+                                                    <div class="col-md-6">
+                                                        <div class="col-lg-12 col-sm-12">
+                                                            <div class="form-group">
+                                                                <label for="inputCommunityName">Social Network</label>
+                                                                <input type="text" class="form-control"
+                                                                    id="inputCommunityName" placeholder="">
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="col-lg-12 col-sm-12">
+                                                            <div class="form-group">
+                                                                <label for="inputCommunityName">Url</label>
+                                                                <input type="text" class="form-control"
+                                                                    id="inputCommunityName" placeholder="">
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="col-lg-12 col-sm-12">
+                                                            <div class="form-group">
+                                                                <label for="inputCommunityName">Text*</label>
+                                                                <input type="text" class="form-control" id="inputContry"
+                                                                    placeholder="">
+                                                            </div>
+
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="col-lg-12 col-sm-12">
+                                                            <div class="form-group">
+
+                                                                <div class="file-upload" style="height: 340px !important;    box-shadow: 0px 0px 10px rgb(0 0 0 / 50%);">
+                                                                    <!--place upload image/icon first !-->
+                                                                    <div class="upload-poss">
+                                                                        <img src="/assets/media/images/Group 1183.svg" class="img-fluid">
+                                                                        <input type="file" name="somename"/>
+                                                                    </div>
+                                                                  
+                                                                
+                                                                </div>
+
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class=" d-flex justify-content-center mt-5">
+                                                    <button type="button" class="btn btn-1 btn-primary mx-"
+                                                        data-dismiss="modal">Add</button>
+                                                    <button type="button"
+                                                        class="btn btn-5 btn-danger mx-2">Delete</button>
+                                                </div>
+                                        </div>
+
+                                    </div>
+                                    <div class=" d-flex justify-content-center m-1 ">
+                                        <a class="btn btn-1  btn-primary " href="#" role="button">Save </a>
+
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="pills-invite" role="tabpanel"
+                                    aria-labelledby="pills-invite-tab">
+                                    <div class="row">
+                                        <div class="col-lg-12 ">
+
+                                            <form>
+                                                <div class="head py-3 mb-1 text-center">
+
+                                                </div>
+                                                <div class="row ">
+                                                    <div class="col-md-6">
+                                                        <div class="col-lg-12 col-sm-12">
+                                                            <div class="form-group">
+                                                                <label for="inputCommunityName">Social Network</label>
+                                                                <input type="text" class="form-control"
+                                                                    id="inputCommunityName" placeholder="">
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="col-lg-12 col-sm-12">
+                                                            <div class="form-group">
+                                                                <label for="inputCommunityName">Url</label>
+                                                                <input type="text" class="form-control"
+                                                                    id="inputCommunityName" placeholder="">
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="col-lg-12 col-sm-12">
+                                                            <div class="form-group">
+                                                                <label for="inputCommunityName">Text*</label>
+                                                                <input type="text" class="form-control" id="inputContry"
+                                                                    placeholder="">
+                                                            </div>
+
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="col-lg-12 col-sm-12">
+                                                            <div class="form-group">
+
+                                                              <div class="file-upload" style="height: 340px !important;    box-shadow: 0px 0px 10px rgb(0 0 0 / 50%);">
+                                                                    <!--place upload image/icon first !-->
+                                                                    <div class="upload-poss">
+                                                                        <img src="/assets/media/images/Group 1183.svg" class="img-fluid">
+                                                                        <input type="file" name="somename"/>
+                                                                    </div>
+                                                                  
+                                                                
+                                                                </div>
+
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class=" d-flex justify-content-center mt-5">
+                                                    <button type="button" class="btn btn-1 btn-primary mx-"
+                                                        data-dismiss="modal">Add</button>
+                                                    <button type="button"
+                                                        class="btn btn-5 btn-danger mx-2">Delete</button>
+                                                </div>
+                                        </div>
+
+                                    </div>
+                                    <div class=" d-flex justify-content-center m-1 ">
+                                        <a class="btn btn-1  btn-primary " href="#" role="button">Save </a>
+
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="pills-social" role="tabpanel"
+                                    aria-labelledby="pills-social-tab">
+                                    <div class="row">
+                                        <div class="col-lg-12 ">
+
+                                            <form>
+                                                <div class="head py-3 mb-1 text-center">
+
+                                                </div>
+                                                <div class="row ">
+                                                    <div class="col-md-6">
+                                                        <div class="col-lg-12 col-sm-12">
+                                                            <div class="form-group">
+                                                                <label for="inputCommunityName">Header</label>
+                                                                <input type="text" class="form-control"
+                                                                    id="inputCommunityName" placeholder="">
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="col-lg-12 col-sm-12">
+                                                            <div class="form-group">
+                                                                <label for="inputCommunityName">Supp Header</label>
+                                                                <input type="text" class="form-control"
+                                                                    id="inputCommunityName" placeholder="">
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="col-lg-12 col-sm-12">
+                                                            <div class="form-group">
+                                                                <label for="inputCommunityName">Supp Header</label>
+                                                                <input type="text" class="form-control" id="inputContry"
+                                                                    placeholder="">
+                                                            </div>
+                                                            <div class="d-flex justify-content-start">
+                                                                <div class="">
+                                                                    <h5>Mark all attendees that<br> login through this
+                                                                        widget as</h5>
+                                                                </div>
+                                                                <div class="">
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <label class="containers">
+                                                                            <input type="checkbox" checked="checked">
+                                                                            <span class="checkmark"></span>
+                                                                        </label>
+                                                                        <span class="ml-5">script attribute
+                                                                            data-ingo-modal="True"
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="col-lg-12 col-sm-12">
+                                                            <div class="form-group">
+
+                                                                <div class="file-upload" style="height: 340px !important;    box-shadow: 0px 0px 10px rgb(0 0 0 / 50%);">
+                                                                      <!--place upload image/icon first !-->
+                                                                      <div class="upload-poss">
+                                                                          <img src="/assets/media/images/Group 1183.svg" class="img-fluid">
+                                                                          <input type="file" name="somename"/>
+                                                                      </div>
+                                                                    
+                                                                  
+                                                                  </div>
+  
+                                                              </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                        </div>
+
+                                    </div>
+                                    <div class=" d-flex justify-content-center m-1 ">
+                                        <a class="btn btn-1  btn-primary " href="#" role="button">Save </a>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ./ Content -->
+
+        </div>
+    </div>
+    </div>
+
+   <script src="../../vendors/sweetalert/sweetalert.min.js"></script>
+<script src="../../vendors/select2/js/select2.min.js"></script>
+    <script src="../../assets/js/examples/select2.js"></script>
+    <script src="../../assets/js/app.min.js"></script>
+    <script type="text/javascript">
+        function ChangeMode(mode) {
+            if (mode == 'day') {
+                $('body').removeClass('dark');
+                $('.admin_mode').html('<span id="night-mode-text">Night mode</span><svg class="feather feather-moon float-right" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>');
+                $('.admin_mode').attr('onclick', "ChangeMode('night')");
+            }
+            else{
+                $('body').addClass('dark');
+                $('.admin_mode').html('<span id="night-mode-text">Day mode</span><svg class="feather feather-moon float-right" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>');
+                $('.admin_mode').attr('onclick', "ChangeMode('day')");
+            }
+            hash_id = $('#hash_id').val();
+            $.get(Wo_Ajax_Requests_File(),{f:'admin_setting', s:'change_mode', hash_id: hash_id}, function(data) {});
+        }
+        $(document).ready(function(){
+            $('[data-toggle="popover"]').popover();
+            var hash = $('.main_session').val();
+              $.ajaxSetup({
+                data: {
+                    hash: hash
+                },
+                cache: false
+              });
+        });
+        $('body').on('click', function (e) {
+            $('.dropdown-animating').removeClass('show');
+            $('.dropdown-menu').removeClass('show');
+        });
+        function searchInFiles(keyword) {
+            if (keyword.length > 2) {
+                $.post(Wo_Ajax_Requests_File() + '?f=admin_setting&s=search_in_pages', {keyword: keyword}, function(data, textStatus, xhr) {
+                    if (data.html != '') {
+                        $('#search_for_bar').html(data.html)
+                    }
+                    else{
+                        $('#search_for_bar').html('')
+                    }
+                });
+            }
+            else{
+                $('#search_for_bar').html('')
+            }
+        }
+        jQuery(document).ready(function($) {
+            jQuery.fn.highlight = function (str, className) {
+                if (str != '') {
+                    var aTags = document.getElementsByTagName("h2");
+                    var bTags = document.getElementsByTagName("label");
+                    var cTags = document.getElementsByTagName("h3");
+                    var dTags = document.getElementsByTagName("h6");
+                    var searchText = str.toLowerCase();
+
+                    if (aTags.length > 0) {
+                        for (var i = 0; i < aTags.length; i++) {
+                            var tag_text = aTags[i].textContent.toLowerCase();
+                            if (tag_text.indexOf(searchText) != -1) {
+                                $(aTags[i]).addClass(className)
+                            }
+                        }
+                    }
+
+                    if (bTags.length > 0) {
+                        for (var i = 0; i < bTags.length; i++) {
+                            var tag_text = bTags[i].textContent.toLowerCase();
+                            if (tag_text.indexOf(searchText) != -1) {
+                                $(bTags[i]).addClass(className)
+                            }
+                        }
+                    }
+
+                    if (cTags.length > 0) {
+                        for (var i = 0; i < cTags.length; i++) {
+                            var tag_text = cTags[i].textContent.toLowerCase();
+                            if (tag_text.indexOf(searchText) != -1) {
+                                $(cTags[i]).addClass(className)
+                            }
+                        }
+                    }
+
+                    if (dTags.length > 0) {
+                        for (var i = 0; i < dTags.length; i++) {
+                            var tag_text = dTags[i].textContent.toLowerCase();
+                            if (tag_text.indexOf(searchText) != -1) {
+                                $(dTags[i]).addClass(className)
+                            }
+                        }
+                    }
+                }
+            };
+            jQuery.fn.highlight("<?php echo (!empty($_GET['highlight']) ? $_GET['highlight'] : '') ?>",'highlight_text');
+            $.get(Wo_Ajax_Requests_File(),{f:'admin_setting', s:'exchange'});
+        });
+        $(document).on('click', '#search_for_bar a', function(event) {
+            event.preventDefault();
+            location.href = $(this).attr('href');
+        });
+        function ReadNotify() {
+            hash_id = $('#hash_id').val();
+            $.get(Wo_Ajax_Requests_File(),{f:'admin_setting', s:'ReadNotify', hash_id: hash_id});
+            location.reload();
+        }
+        function delay(callback, ms) {
+          var timer = 0;
+          return function() {
+            var context = this, args = arguments;
+            clearTimeout(timer);
+            timer = setTimeout(function () {
+              callback.apply(context, args);
+            }, ms || 0);
+          };
+        }
+    </script>
+    <script type="text/javascript">
+        function ChangeMode(mode) {
+            if (mode == 'day') {
+                $('body').removeClass('dark');
+                $('.admin_mode').html('<span id="night-mode-text">Night mode</span><svg class="feather feather-moon float-right" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>');
+                $('.admin_mode').attr('onclick', "ChangeMode('night')");
+            }
+            else{
+                $('body').addClass('dark');
+                $('.admin_mode').html('<span id="night-mode-text">Day mode</span><svg class="feather feather-moon float-right" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>');
+                $('.admin_mode').attr('onclick', "ChangeMode('day')");
+            }
+            hash_id = $('#hash_id').val();
+            $.get(Wo_Ajax_Requests_File(),{f:'admin_setting', s:'change_mode', hash_id: hash_id}, function(data) {});
+        }
+        $(document).ready(function(){
+            $('[data-toggle="popover"]').popover();
+            var hash = $('.main_session').val();
+              $.ajaxSetup({
+                data: {
+                    hash: hash
+                },
+                cache: false
+              });
+        });
+        $('body').on('click', function (e) {
+            $('.dropdown-animating').removeClass('show');
+            $('.dropdown-menu').removeClass('show');
+        });
+        function searchInFiles(keyword) {
+            if (keyword.length > 2) {
+                $.post(Wo_Ajax_Requests_File() + '?f=admin_setting&s=search_in_pages', {keyword: keyword}, function(data, textStatus, xhr) {
+                    if (data.html != '') {
+                        $('#search_for_bar').html(data.html)
+                    }
+                    else{
+                        $('#search_for_bar').html('')
+                    }
+                });
+            }
+            else{
+                $('#search_for_bar').html('')
+            }
+        }
+        jQuery(document).ready(function($) {
+            jQuery.fn.highlight = function (str, className) {
+                if (str != '') {
+                    var aTags = document.getElementsByTagName("h2");
+                    var bTags = document.getElementsByTagName("label");
+                    var cTags = document.getElementsByTagName("h3");
+                    var dTags = document.getElementsByTagName("h6");
+                    var searchText = str.toLowerCase();
+
+                    if (aTags.length > 0) {
+                        for (var i = 0; i < aTags.length; i++) {
+                            var tag_text = aTags[i].textContent.toLowerCase();
+                            if (tag_text.indexOf(searchText) != -1) {
+                                $(aTags[i]).addClass(className)
+                            }
+                        }
+                    }
+
+                    if (bTags.length > 0) {
+                        for (var i = 0; i < bTags.length; i++) {
+                            var tag_text = bTags[i].textContent.toLowerCase();
+                            if (tag_text.indexOf(searchText) != -1) {
+                                $(bTags[i]).addClass(className)
+                            }
+                        }
+                    }
+
+                    if (cTags.length > 0) {
+                        for (var i = 0; i < cTags.length; i++) {
+                            var tag_text = cTags[i].textContent.toLowerCase();
+                            if (tag_text.indexOf(searchText) != -1) {
+                                $(cTags[i]).addClass(className)
+                            }
+                        }
+                    }
+
+                    if (dTags.length > 0) {
+                        for (var i = 0; i < dTags.length; i++) {
+                            var tag_text = dTags[i].textContent.toLowerCase();
+                            if (tag_text.indexOf(searchText) != -1) {
+                                $(dTags[i]).addClass(className)
+                            }
+                        }
+                    }
+                }
+            };
+            jQuery.fn.highlight("<?php echo (!empty($_GET['highlight']) ? $_GET['highlight'] : '') ?>",'highlight_text');
+            $.get(Wo_Ajax_Requests_File(),{f:'admin_setting', s:'exchange'});
+        });
+        $(document).on('click', '#search_for_bar a', function(event) {
+            event.preventDefault();
+            location.href = $(this).attr('href');
+        });
+        function ReadNotify() {
+            hash_id = $('#hash_id').val();
+            $.get(Wo_Ajax_Requests_File(),{f:'admin_setting', s:'ReadNotify', hash_id: hash_id});
+            location.reload();
+        }
+        function delay(callback, ms) {
+          var timer = 0;
+          return function() {
+            var context = this, args = arguments;
+            clearTimeout(timer);
+            timer = setTimeout(function () {
+              callback.apply(context, args);
+            }, ms || 0);
+          };
+        }
+    </script>
+
+</body>
+
+</html>
