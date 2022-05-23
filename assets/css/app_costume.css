@@ -8,7 +8,7 @@ body{
      
 }
 .content{
-    overflow: auto !important ;
+    overflow: scroll !important ;
 }
 
 /* Showe HOME */
@@ -333,6 +333,9 @@ line-height: 22px;
 }
 .table .data-table-email{
     color:#8A62CC;
+}
+.data-table-email{
+    color:#8A62CC !important;
 }
 
 .table .name-row{
